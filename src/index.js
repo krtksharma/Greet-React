@@ -1,17 +1,26 @@
+//Create a React app from scratch.
+//Show a single h1 that says "Good morning" if between midnight and 12PM.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+const hour = new Date().getHours();
+let greet;
+const style1 = {
+  color:"red",
+  border:"2px solid "
+}
+if( hour < 12)
+  {greet = "Good Morning";
+   style1.color = "green"}
+else if(hour < 18)
+      {greet = "Good Afternoon";
+      style1.color = "red"}
+else if(hour < 24)
+     {greet = "Good Night";
+     style1.color = "blue"}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <div>
+  <h1 className="Heading" style={style1}>{greet}</h1>
+  </div>
+  ,document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
